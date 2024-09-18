@@ -3,6 +3,7 @@ import Image from "next/image";
 import { fetchShops } from "../actions";
 import { PageControls } from "./PageControls";
 import MinecraftItem from "@/components/minecraft/MinecraftItem";
+import React from "react";
 
 const replaceUnderscoresWithSpaces = (input: string): string => input.replace(/_/g, " ");
 
@@ -24,7 +25,7 @@ export default async function MarketTable({ material, page }: { material: string
                   className="size-8 shrink-0"
                 />
                 <div className="min-w-0 flex-1 text-left">
-                  <p className="truncate leading-5">{replaceUnderscoresWithSpaces(shop.owner.name)}&apos;s Shop</p>
+                  <span className="truncate">{shop.owner.name}&apos;s Shop</span>
                   {shop.town && (
                     <p className="truncate text-sm font-normal text-base-content/70">{replaceUnderscoresWithSpaces(shop.town.name)}</p>
                   )}
