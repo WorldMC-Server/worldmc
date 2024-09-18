@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="flex-none">
           <Link href="/" className="btn btn-ghost text-xl">
             <Image src={"/worldmc.png"} alt="WorldMC Icon" className="size-8" width={100} height={100} />
-            <span className="hidden lg:block">WorldMC</span>
+            WorldMC
           </Link>
         </div>
         <div className="flex-1">
