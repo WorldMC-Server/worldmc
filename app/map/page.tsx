@@ -14,7 +14,7 @@ export default function Page() {
         <iframe src="https://map.worldmc.net" className="aspect-[3/4] w-full rounded-box shadow sm:aspect-video" />
         <div className="flex flex-col justify-between text-left sm:flex-row">
           <div>
-            <Link href="https://map.worldmc.net" className="link-hover link-secondary" target="_blank">
+            <Link href="https://map.worldmc.net" className="link-hover link-primary" target="_blank">
               View Full Map <ExternalLink className="inline-block size-4" />
             </Link>
             <p>Earth 1:1000</p>

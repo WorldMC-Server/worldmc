@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
             {town.discordLink && (
               <div className="badge badge-lg">
                 <DiscordLogo className="mr-1 size-4" />
-                <Link href={town.discordLink} className="link-hover link-secondary dark:link-primary">
+                <Link href={town.discordLink} className="link-hover link-primary">
                   Discord
                 </Link>
               </div>
