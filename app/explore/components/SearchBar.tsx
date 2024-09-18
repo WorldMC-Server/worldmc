@@ -43,21 +43,21 @@ export function SearchBar({ placeholder }: { placeholder: string }): JSX.Element
         <button tabIndex={0} className="btn">
           {currentFilter || "Residents"} <ChevronDown />
         </button>
-        <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
-          <li onClick={() => handleChange("filter", "Nations")}>
-            <a className="flex justify-between">
-              Nations <Flag />
-            </a>
+        <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] mt-1 w-52 rounded-box bg-base-200 p-2 shadow">
+          <li>
+            <button onClick={() => handleChange("filter", "Nations")}>
+              <Flag className="size-4" /> Nations
+            </button>
           </li>
-          <li onClick={() => handleChange("filter", "Towns")}>
-            <a className="flex justify-between">
-              Towns <Building2 />
-            </a>
+          <li>
+            <button onClick={() => handleChange("filter", "Towns")}>
+              <Building2 className="size-4" /> Towns
+            </button>
           </li>
-          <li onClick={() => handleChange("filter", "Residents")}>
-            <a className="flex justify-between">
-              Residents <Users />
-            </a>
+          <li>
+            <button onClick={() => handleChange("filter", "Residents")}>
+              <Users className="size-4" /> Residents
+            </button>
           </li>
         </ul>
       </div>
