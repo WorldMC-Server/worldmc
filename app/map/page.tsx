@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="container space-y-4 text-center">
-      <h1 className="text-5xl font-black">Earth Map</h1>
+    <div className="container space-y-4">
+      <h1 className="text-center text-5xl font-black">Earth Map</h1>
       <div>
         <iframe src="https://map.worldmc.net" className="aspect-[3/4] w-full rounded-box shadow sm:aspect-video" />
         <div className="flex flex-col justify-between text-left sm:flex-row">
