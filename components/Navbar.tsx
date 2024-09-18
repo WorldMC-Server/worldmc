@@ -10,9 +10,9 @@ export default function Navbar() {
       <nav className="container navbar">
         <div className="flex-none lg:hidden">
           <div className="dropdown">
-            <button aria-label="open sidebar" className="btn btn-ghost">
+            <div tabIndex={0} role="button" aria-label="open sidebar" className="btn btn-ghost">
               <Menu className="size-5" />
-            </button>
+            </div>
             <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-300 p-2 shadow">
               {mainNavItems.map((item) => (
                 <li key={item.name}>
