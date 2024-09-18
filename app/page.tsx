@@ -1,101 +1,72 @@
 import Image from "next/image";
+import CopyIp from "@/app/components/CopyIp";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <section className="container space-y-4">
+      <div className="hero rounded-box bg-base-200 py-8 shadow" style={{ backgroundImage: "url(/londondark.png)" }}>
+        <div className="hero-content text-center">
+          <div className="max-w-md bg-transparent text-white dark:text-base-content">
+            <h1 className="text-6xl font-black">WorldMC</h1>
+            <h2 className="text-4xl font-bold">Minecraft Earth</h2>
+            <p className="py-6">
+              Explore a 1:1000 Earth map in Minecraft. Build empires, engage in politics, and shape the global economy in this immersive,
+              player-driven world.
+            </p>
+            <CopyIp />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </div>
+      <div className="mx-auto max-w-screen-lg">
+        <div className="hero">
+          <div className="hero-content flex-col md:flex-row">
+            <Image src="/old-towns/bank.jpg" alt="Minecraft Bank" width={300} height={300} className="max-w-sm rounded-box shadow" />
+            <div className="space-y-4 py-4 text-center md:text-left">
+              <h1 className="text-5xl font-bold">Jam Packed</h1>
+              <p>
+                Experience the thrill of a bustling Minecraft world like never before. WorldMC harnesses the power of Paper Folia, a
+                cutting-edge server software, to support up to 500 players simultaneously. This means more interactions, grander cities, and
+                epic battles on a scale you&apos;ve never seen in Minecraft. Join a vibrant community where every login brings new
+                adventures and opportunities.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="hero">
+          <div className="hero-content flex-col md:flex-row-reverse">
+            <Image
+              src="/old-towns/skyscrapers.jpg"
+              alt="Minecraft Skyscrapers"
+              width={300}
+              height={300}
+              className="max-w-sm rounded-lg shadow"
+            />
+            <div className="space-y-4 py-4 text-center md:text-left">
+              <h1 className="text-5xl font-bold">Power, Authority, Influence</h1>
+              <p>
+                Dive into a rich world of politics and economics with our enhanced Towny plugin. Found your own town, join alliances, and
+                climb the ranks of power. Engage in diplomatic negotiations, run for office, or become a business tycoon. Every decision
+                shapes the world around you. Will you be a benevolent leader, a shrewd diplomat, or a cunning entrepreneur? The choice is
+                yours in this dynamic player-driven landscape.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="hero">
+          <div className="hero-content flex-col md:flex-row">
+            <Image src="/old-towns/rome.jpg" alt="Minecraft Rome" width={300} height={300} className="max-w-sm rounded-lg shadow" />
+            <div className="space-y-4 py-4 text-center md:text-left">
+              <h1 className="text-5xl font-bold">It&apos;s Your Destiny</h1>
+              <p>
+                Forge your own path in a world where players hold the reins. Our server features a player-run gold economy, where supply and
+                demand are dictated by the community. Start a business, trade rare resources, or become a master craftsman. With
+                player-managed shops and a fluctuating market, your economic savvy could lead you to untold riches. But remember, in this
+                player-driven server, your actions ripple across the world. Will you rise to the challenge and shape the destiny of WorldMC?
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
