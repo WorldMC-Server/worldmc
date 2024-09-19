@@ -1,8 +1,8 @@
 import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Book, Menu } from "lucide-react";
 import Image from "next/image";
-import { mainNavItems, secondaryNavItems } from "@/lib/Navigation";
+import { docsItems, mainNavItems, secondaryNavItems } from "@/lib/Navigation";
 
 export default function Navbar() {
   return (
@@ -22,6 +22,23 @@ export default function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <details>
+                  <summary>
+                    <Book className="size-4" /> Docs
+                  </summary>
+                  <ul className="w-fit p-2">
+                    {docsItems.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href} className="text-nowrap">
+                          {item.icon}
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
               {secondaryNavItems.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} target={item.external ? "_blank" : undefined}>
@@ -48,6 +65,23 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
+            <li>
+              <details>
+                <summary>
+                  <Book className="size-4" /> Docs
+                </summary>
+                <ul className="z-50 w-fit bg-base-300 p-2">
+                  {docsItems.map((item) => (
+                    <li key={item.name}>
+                      <Link href={item.href} className="text-nowrap">
+                        {item.icon}
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
           </ul>
         </div>
         <div className="flex-none">

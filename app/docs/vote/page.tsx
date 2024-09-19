@@ -10,7 +10,7 @@ const voteLinks = [
 
 export default function Page() {
   return (
-    <section className="container space-y-4">
+    <section className="container w-fit space-y-4">
       <h1 className="text-center text-5xl font-black">Vote</h1>
 
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
