@@ -90,7 +90,8 @@ export default async function Page({ params }: { params: { uuid: string } }) {
               </div>
             )}
             <div className="badge badge-lg">
-              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" /> {resident.bankAccount.toLocaleString()}
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />{" "}
+              {resident.bankAccount.toLocaleString(undefined, { maximumFractionDigits: 0 })}
             </div>
           </div>
 
