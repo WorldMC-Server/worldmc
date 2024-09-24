@@ -137,15 +137,18 @@ interface BannerMeta {
 interface Shop {
   name: string;
   id: number;
-  town?: PartialTown;
-  owner: {
-    name: string;
-    UUID: string;
+  type: string;
+  location: {
+    x: number;
+    z: number;
   };
+  town?: PartialTown;
+  owner: PartialResident;
   item: string;
   amount: number;
   price: number;
   stock: number;
+  space: number;
 }
 
 // Paginated

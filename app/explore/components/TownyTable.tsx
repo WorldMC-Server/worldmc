@@ -10,9 +10,15 @@ type TownyObjectType = "nations" | "towns" | "residents";
 
 type TownyObject = PartialNation | PartialTown | PartialResident;
 
-export default async function TownyTable({ query, page, filter }: { query: string; page: number; filter: string }) {
+interface TownyTableProps {
+  query?: string;
+  page?: string;
+  filter: string;
+}
+
+export default async function TownyTable({ query, page, filter }: TownyTableProps) {
   const townyObjectType: TownyObjectType = (filter.toLowerCase() as TownyObjectType) || "residents";
-  const townyObjects = await fetchTownyObjects(page, query, townyObjectType);
+  const townyObjects = await fetchTownyObjects(townyObjectType, { page, query });
 
   const renderButton = (item: TownyObject) => {
     switch (townyObjectType) {

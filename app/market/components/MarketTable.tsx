@@ -2,9 +2,10 @@ import { fetchShops } from "../actions";
 import { PageControls } from "./PageControls";
 import React from "react";
 import ShopCard from "@/app/market/components/ShopCard";
+import { SearchProps } from "@/app/market/page";
 
-export default async function MarketTable({ material, page }: { material: string; page: number }) {
-  const shops = await fetchShops(page, material);
+export default async function MarketTable(params: SearchProps) {
+  const shops = await fetchShops(params);
 
   return (
     <>

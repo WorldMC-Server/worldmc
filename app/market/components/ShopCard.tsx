@@ -12,6 +12,24 @@ interface ShopButtonProps {
 }
 
 export default function ShopCard({ shop }: ShopButtonProps) {
+  const isBuying = shop.type === "buying";
+
+  const getStockStatusBadge = () => {
+    if (isBuying) {
+      return shop.space > 0 ? "badge-success" : "badge-error";
+    } else {
+      return shop.stock >= shop.amount ? "badge-success" : "badge-error";
+    }
+  };
+
+  const getStockStatusLabel = () => {
+    if (isBuying) {
+      return shop.space > 0 ? "Depleted" : "Stocked";
+    } else {
+      return shop.stock >= shop.amount ? "In Stock" : "Out of Stock";
+    }
+  };
+
   return (
     <div key={shop.id} className="card card-compact bg-base-200 shadow">
       <div className="card-body">
@@ -24,8 +42,8 @@ export default function ShopCard({ shop }: ShopButtonProps) {
             className="size-8 shrink-0"
           />
           {shop.owner.name}&apos;s Shop
-          <div className={clsx("badge", shop.stock >= shop.amount ? "badge-success" : "badge-error")}>
-            {shop.stock >= shop.amount ? "In Stock" : "Out of Stock"}
+          <div className={clsx("badge", isBuying ? "badge-primary" : "badge-secondary", getStockStatusBadge())}>
+            {getStockStatusLabel()}
           </div>
         </h2>
 
@@ -40,7 +58,7 @@ export default function ShopCard({ shop }: ShopButtonProps) {
           </div>
           <div className="badge badge-lg whitespace-nowrap">
             <PackageOpen className="mr-1 size-4" />
-            {shop.stock}
+            {isBuying ? `Space: ${shop.space}` : `Stock: ${shop.stock > 0 ? shop.stock : 0}`}
           </div>
           {shop.town && (
             <div className="badge badge-lg whitespace-nowrap">
