@@ -4,27 +4,32 @@ import { PageControls } from "./PageControls";
 import NationButton from "@/components/towny/NationButton";
 import TownButton from "@/components/towny/TownButton";
 import ResidentButton from "@/components/towny/ResidentButton";
+import { PartialNation, PartialTown, PartialResident } from "@/types/bridge";
 
 type TownyObjectType = "nations" | "towns" | "residents";
+
+type TownyObject = PartialNation | PartialTown | PartialResident;
 
 export default async function TownyTable({ query, page, filter }: { query: string; page: number; filter: string }) {
   const townyObjectType: TownyObjectType = (filter.toLowerCase() as TownyObjectType) || "residents";
   const townyObjects = await fetchTownyObjects(page, query, townyObjectType);
 
-  const ButtonComponent = {
-    nations: NationButton,
-    towns: TownButton,
-    residents: ResidentButton,
-  }[townyObjectType];
+  const renderButton = (item: TownyObject) => {
+    switch (townyObjectType) {
+      case "nations":
+        return <NationButton key={item.UUID} item={item as PartialNation} />;
+      case "towns":
+        return <TownButton key={item.UUID} item={item as PartialTown} />;
+      case "residents":
+        return <ResidentButton key={item.UUID} item={item as PartialResident} showTown={true} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
-      <div className="space-y-2">
-        {townyObjects &&
-          townyObjects.data.map((item) => (
-            <ButtonComponent key={item.UUID} item={item} {...(townyObjectType === "residents" && { showTown: true })} />
-          ))}
-      </div>
+      <div className="space-y-2">{townyObjects && townyObjects.data.map((item) => renderButton(item))}</div>
       <PageControls totalPages={townyObjects?.totalPages || 0} />
     </>
   );
