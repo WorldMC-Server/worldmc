@@ -24,7 +24,7 @@ export default function ShopCard({ shop }: ShopButtonProps) {
 
   const getStockStatusLabel = () => {
     if (isBuying) {
-      return shop.space > 0 ? "Depleted" : "Stocked";
+      return shop.space > 0 ? "Buying" : "Not Buying";
     } else {
       return shop.stock >= shop.amount ? "In Stock" : "Out of Stock";
     }
