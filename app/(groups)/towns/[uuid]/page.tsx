@@ -90,7 +90,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
       {town.residents.length == 0 ? (
         <p>This town has no residents.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           <ResidentButton item={town.mayor} key={town.mayor.UUID} showMayor={true} />
           {town.residents
             .filter((resident) => resident.UUID !== town.mayor.UUID)
