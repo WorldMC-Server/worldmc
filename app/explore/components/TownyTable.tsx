@@ -12,7 +12,7 @@ type TownyObject = PartialNation | PartialTown | PartialResident;
 
 interface TownyTableProps {
   query?: string;
-  page?: string;
+  page?: number;
   filter: string;
 }
 

@@ -4,11 +4,11 @@ import { getNations, getResidents, getTowns, BaseSearchProps } from "@/lib/bridg
 
 type TownyObjectType = "residents" | "towns" | "nations";
 
-export async function fetchTownyObjects(type: TownyObjectType, searchParams: { page?: string; query?: string }) {
-  const { page = "1", query } = searchParams;
+export async function fetchTownyObjects(type: TownyObjectType, searchParams: { page?: number; query?: string }) {
+  const { page = 1, query } = searchParams;
 
   const params: BaseSearchProps = {
-    page: parseInt(page),
+    page: page,
     pageSize: 12,
     query,
   };

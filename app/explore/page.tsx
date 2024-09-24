@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Explore",
 };
 
-export default function Page({ searchParams }: { searchParams: { query?: string; page?: string; filter?: string } }) {
+export default function Page({ searchParams }: { searchParams: { query?: string; page?: number; filter?: string } }) {
   const page = Number(searchParams?.page || 1);
   const query = searchParams?.query || "";
   const filter = searchParams?.filter || "";
