@@ -14,7 +14,7 @@ export default function TownButton({ item, showCapital = false }: TownButtonProp
   return (
     <Link href={`/towns/${item.UUID}`} className={twMerge("btn btn-lg btn-block justify-between shadow")}>
       <div className="flex min-w-0 flex-1 items-center gap-4">
-        <span className="truncate">{replaceUnderscoresWithSpaces(item.name)}</span>
+        <span className="truncate leading-normal">{replaceUnderscoresWithSpaces(item.name)}</span>
         <div className="badge badge-lg whitespace-nowrap font-normal">
           <Users className="mr-1 size-4" />
           {item.numResidents}

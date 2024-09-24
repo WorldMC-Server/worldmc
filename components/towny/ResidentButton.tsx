@@ -22,7 +22,7 @@ export default function ResidentButton({ item, showTown = false, showMayor = fal
           width={32}
           className="size-8 shrink-0"
         />
-        <span className="truncate">{item.name}</span>
+        <span className="truncate leading-normal">{item.name}</span>
         {showMayor && (
           <div className="badge badge-lg whitespace-nowrap font-normal">
             <Shield className="mr-1 size-4" />
