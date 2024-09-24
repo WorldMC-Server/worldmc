@@ -108,7 +108,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
       <h2 className="text-xl font-bold">About</h2>
       <p>{resident.about}</p>
       <h2 className="text-xl font-bold">Residence</h2>
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
         {!resident.town && <p>This player does not have any residence.</p>}
         {resident.town && (
           <div className={clsx(!resident.nation && "col-span-full")}>
@@ -121,7 +121,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
       {resident.friends.length == 0 ? (
         <p>This player has no friends.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {resident.friends.map((resident) => (
             <ResidentButton item={resident} key={resident.UUID} />
           ))}
