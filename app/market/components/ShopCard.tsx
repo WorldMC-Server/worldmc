@@ -41,8 +41,8 @@ export default function ShopCard({ shop }: ShopButtonProps) {
             width={32}
             className="size-8 shrink-0"
           />
-          {shop.owner.name}&apos;s Shop
-          <div className={clsx("badge", isBuying ? "badge-primary" : "badge-secondary", getStockStatusBadge())}>
+          <span className="truncate">{shop.owner.name}&apos;s Shop</span>
+          <div className={clsx("badge whitespace-nowrap", isBuying ? "badge-primary" : "badge-secondary", getStockStatusBadge())}>
             {getStockStatusLabel()}
           </div>
         </h2>
