@@ -12,7 +12,7 @@ interface ShopButtonProps {
 }
 
 export default function ShopCard({ shop }: ShopButtonProps) {
-  const isBuying = shop.type === "buying";
+  const isBuying = shop.type === "BUYING";
 
   const getStockStatusBadge = () => {
     if (isBuying) {
@@ -47,25 +47,29 @@ export default function ShopCard({ shop }: ShopButtonProps) {
           </div>
         </h2>
 
-        <div className="flex flex-wrap gap-2">
-          <div className="badge badge-lg whitespace-nowrap">
-            <MinecraftIcon assetType={shop.item} className="mr-1 size-4" />
-            {convertToTitleCase(replaceUnderscoresWithSpaces(shop.item))}
-          </div>
-          <div className="badge badge-lg whitespace-nowrap">
-            <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />
-            {shop.price} per {shop.amount}x
-          </div>
-          <div className="badge badge-lg whitespace-nowrap">
-            <PackageOpen className="mr-1 size-4" />
-            {isBuying ? `Space: ${shop.space}` : `Stock: ${shop.stock > 0 ? shop.stock : 0}`}
-          </div>
-          {shop.town && (
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-2">
             <div className="badge badge-lg whitespace-nowrap">
-              <Building2 className="mr-1 size-4" />
-              {replaceUnderscoresWithSpaces(shop.town.name)}
+              <MinecraftIcon assetType={shop.item} className="mr-1 size-4" />
+              {convertToTitleCase(replaceUnderscoresWithSpaces(shop.item))}
             </div>
-          )}
+            <div className="badge badge-lg whitespace-nowrap">
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />
+              {shop.price} per {shop.amount}x
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <div className="badge badge-lg whitespace-nowrap">
+              <PackageOpen className="mr-1 size-4" />
+              {isBuying ? `Space: ${shop.space}` : `Stock: ${shop.stock > 0 ? shop.stock : 0}`}
+            </div>
+            {shop.town && (
+              <div className="badge badge-lg whitespace-nowrap">
+                <Building2 className="mr-1 size-4" />
+                {replaceUnderscoresWithSpaces(shop.town.name)}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
