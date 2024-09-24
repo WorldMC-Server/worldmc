@@ -14,8 +14,8 @@ export default async function Page({ searchParams }: { searchParams: { material?
   const material = searchParams?.material || "diamond";
 
   return (
-    <section className="container space-y-4 text-center">
-      <h1 className="text-5xl font-black">Market</h1>
+    <section className="container space-y-4">
+      <h1 className="text-center text-5xl font-black">Market</h1>
       <FilterPanel />
       <SearchBar placeholder="Search Market..." />
       <MarketTable page={page} material={material} />
