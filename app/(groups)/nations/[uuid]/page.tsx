@@ -144,7 +144,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
       {nation.allies.length === 0 ? (
         <p>This nation has no allies.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {nation.allies.map((nation) => (
             <NationButton item={nation} key={nation.UUID} />
           ))}
@@ -154,7 +154,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
       {nation.enemies.length === 0 ? (
         <p>This nation has no enemies.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
           {nation.enemies.map((nation) => (
             <NationButton item={nation} key={nation.UUID} />
           ))}
