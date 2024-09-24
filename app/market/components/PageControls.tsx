@@ -30,7 +30,7 @@ export function PageControls({ totalPages }: { totalPages: number }) {
           Next <ChevronRight />
         </button>
       </div>
-      <p className="col-span-2 mt-2 text-sm text-gray-500">
+      <p className="col-span-2 mt-2 text-center text-sm text-gray-500">
         Page {currentPage} of {totalPages}
       </p>
     </>

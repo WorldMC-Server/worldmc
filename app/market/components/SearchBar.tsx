@@ -40,17 +40,17 @@ export function SearchBar({ placeholder }: { placeholder: string }): JSX.Element
 
       <div className="dropdown dropdown-end flex-none">
         <button tabIndex={0} className="btn">
-          Price Descending <ChevronDown />
+          Value Descending <ChevronDown />
         </button>
         <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] mt-1 w-52 rounded-box bg-base-200 p-2 shadow">
           <li>
             <button>
-              <TrendingDown className="size-4" /> Price Descending
+              <TrendingDown className="size-4" /> Value Descending
             </button>
           </li>
           <li>
             <button>
-              <TrendingUp className="size-4" /> Price Ascending
+              <TrendingUp className="size-4" /> Value Ascending
             </button>
           </li>
         </ul>
