@@ -9,7 +9,7 @@ export default async function MarketTable(params: ShopSearchProps) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-2 lg:grid-cols-2 xl:grid-cols-3">
         {shops && shops.data.map((shop) => <ShopCard key={shop.id} shop={shop} />)}
       </div>
       <PageControls totalPages={shops?.totalPages || 0} />
