@@ -137,7 +137,7 @@ interface BannerMeta {
 interface Shop {
   name: string;
   id: number;
-  type: string;
+  isBuying: boolean;
   location: {
     x: number;
     z: number;
