@@ -1,26 +1,19 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { twMerge } from "tailwind-merge";
-import { User, Shield } from "lucide-react";
-
-const replaceUnderscoresWithSpaces = (input: string): string => input.replace(/_/g, " ");
+import { User, Shield, Building2 } from "lucide-react";
+import { replaceUnderscoresWithSpaces } from "@/lib/format";
+import { PartialResident } from "@/types/bridge";
 
 interface ResidentButtonProps {
-  item: {
-    UUID: string;
-    name: string;
-    town?: {
-      name: string;
-    };
-  };
+  item: PartialResident;
   showTown?: boolean;
   showMayor?: boolean;
 }
 
 export default function ResidentButton({ item, showTown = false, showMayor = false }: ResidentButtonProps) {
   return (
-    <Link href={`/residents/${item.UUID}`} className={twMerge("btn btn-lg btn-block flex justify-between shadow")}>
+    <Link href={`/residents/${item.UUID}`} className="btn btn-lg btn-block flex items-center shadow">
       <div className="flex min-w-0 flex-1 items-center gap-4">
         <Image
           src={`https://crafatar.com/avatars/${item.UUID}?size=32&default=MHF_Steve&overlay`}
@@ -29,17 +22,21 @@ export default function ResidentButton({ item, showTown = false, showMayor = fal
           width={32}
           className="size-8 shrink-0"
         />
-        <div className="min-w-0 flex-1 text-left">
-          <span className="truncate">
-            {item.name}
-            {showMayor && " (Mayor)"}
-          </span>
-          {showTown && item.town && (
-            <p className="truncate text-sm font-normal text-base-content/70">{replaceUnderscoresWithSpaces(item.town.name)}</p>
-          )}
-        </div>
+        <span className="truncate">{item.name}</span>
+        {showMayor && (
+          <div className="badge badge-lg whitespace-nowrap font-normal">
+            <Shield className="mr-1 size-4" />
+            Mayor
+          </div>
+        )}
+        {showTown && item.town && (
+          <div className="badge badge-lg whitespace-nowrap font-normal">
+            <Building2 className="mr-1 size-4" />
+            <span className="truncate">{replaceUnderscoresWithSpaces(item.town.name)}</span>
+          </div>
+        )}
       </div>
-      {showMayor ? <Shield className="shrink-0" /> : <User className="shrink-0" />}
+      <User className="ml-2 shrink-0" />
     </Link>
   );
 }
