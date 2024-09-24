@@ -21,20 +21,11 @@ export interface ShopSearchProps extends BaseSearchProps {
 function convertToURLSearchParams(props: BaseSearchProps | ShopSearchProps): URLSearchParams {
   const params = new URLSearchParams();
 
-  if (props.page !== undefined) params.append("page", props.page.toString());
-  if (props.pageSize !== undefined) params.append("pageSize", props.pageSize.toString());
-  if (props.query) params.append("query", props.query);
-
-  if ("shopType" in props) {
-    const shopProps = props as Partial<ShopSearchProps>;
-
-    if (shopProps.shopType) params.append("shopType", shopProps.shopType);
-    if (shopProps.minPrice) params.append("minPrice", shopProps.minPrice.toString());
-    if (shopProps.maxPrice) params.append("maxPrice", shopProps.maxPrice.toString());
-    if (shopProps.minStock) params.append("minStock", shopProps.minStock.toString());
-    if (shopProps.maxStock) params.append("maxStock", shopProps.maxStock.toString());
-    if (shopProps.sort) params.append("sort", shopProps.sort);
-  }
+  Object.entries(props).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== "") {
+      params.append(key, value.toString());
+    }
+  });
 
   return params;
 }
@@ -86,9 +77,7 @@ export async function getResident(UUID: string): Promise<Resident> {
 
 // Shops
 export async function getShops(props: ShopSearchProps): Promise<PaginatedResult<Shop>> {
-  console.log(props);
   const params = convertToURLSearchParams(props);
-  console.log(`/shops?${params.toString()}`);
   return apiRequest<PaginatedResult<Shop>>(`/shops?${params.toString()}`);
 }
 
