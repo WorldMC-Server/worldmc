@@ -58,7 +58,7 @@ export default function SearchBar({ placeholder }: { placeholder: string }): JSX
     handleChange({ [name]: updateValue });
   };
 
-  const currentSort = searchParams.get("sort") || "desc";
+  const currentSort = searchParams.get("sort") || "asc";
   const currentShopType = searchParams.get("shopType") || "all";
 
   return (
@@ -155,13 +155,13 @@ export default function SearchBar({ placeholder }: { placeholder: string }): JSX
           </button>
           <ul tabIndex={0} className="menu dropdown-content menu-sm z-[1] mt-1 w-52 rounded-box bg-base-200 p-2 shadow">
             <li>
-              <button onClick={() => handleChange({ sort: "desc" })}>
-                <TrendingDown className="size-4" /> Value Descending
+              <button onClick={() => handleChange({ sort: "asc" })}>
+                <TrendingUp className="size-4" /> Value Ascending
               </button>
             </li>
             <li>
-              <button onClick={() => handleChange({ sort: "asc" })}>
-                <TrendingUp className="size-4" /> Value Ascending
+              <button onClick={() => handleChange({ sort: "desc" })}>
+                <TrendingDown className="size-4" /> Value Descending
               </button>
             </li>
           </ul>
