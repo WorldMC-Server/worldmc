@@ -51,6 +51,6 @@ export async function getResident(UUID: string): Promise<Resident> {
 }
 
 // Shops
-export async function getShops(page: number = 1, item: string): Promise<PaginatedResult<Shop>> {
-  return apiRequest<PaginatedResult<Shop>>(`/shops?page=${page}&material=${item}`);
+export async function getShops(page: number = 1, pageSize: number = 20, item: string): Promise<PaginatedResult<Shop>> {
+  return apiRequest<PaginatedResult<Shop>>(`/shops?page=${page}&pageSize=${pageSize}&material=${item}`);
 }
