@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useMemo } from "react";
 import { twMerge } from "tailwind-merge";
+import { useTheme } from "next-themes";
 
 type MinecraftColor =
   | "WHITE"
@@ -41,7 +42,7 @@ const colorMap: Record<MinecraftColor, [number, number, number]> = {
 };
 
 interface MinecraftBannerProps {
-  type: string;
+  type?: string;
   patterns:
     | {
         pattern: string;
@@ -53,6 +54,7 @@ interface MinecraftBannerProps {
 
 const MinecraftBanner: React.FC<MinecraftBannerProps> = React.memo((bannerData: MinecraftBannerProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   const renderBanner = useMemo(() => {
     return async () => {
@@ -68,7 +70,12 @@ const MinecraftBanner: React.FC<MinecraftBannerProps> = React.memo((bannerData: 
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const baseColor = bannerData.type.split("_")[0] as MinecraftColor;
+      let baseColor: MinecraftColor;
+      if (bannerData.type) {
+        baseColor = bannerData.type.replace("_BANNER", "") as MinecraftColor;
+      } else {
+        baseColor = theme === "dark" ? "GRAY" : "WHITE";
+      }
       const baseColorRGB = colorMap[baseColor] || [255, 255, 255];
 
       await drawLayer(ctx, "/minecraft/entity/banner/base.png", baseColorRGB);
@@ -81,7 +88,7 @@ const MinecraftBanner: React.FC<MinecraftBannerProps> = React.memo((bannerData: 
         }
       }
     };
-  }, [bannerData]);
+  }, [bannerData, theme]);
 
   useEffect(() => {
     renderBanner();
@@ -94,17 +101,14 @@ async function drawLayer(ctx: CanvasRenderingContext2D, imageSrc: string, color:
   return new Promise<void>((resolve, reject) => {
     const img = new Image();
     img.onload = () => {
-      // Create a temporary canvas to handle the coloring
       const tempCanvas = document.createElement("canvas");
       tempCanvas.width = ctx.canvas.width;
       tempCanvas.height = ctx.canvas.height;
       const tempCtx = tempCanvas.getContext("2d");
 
       if (tempCtx) {
-        // Draw the image on the temporary canvas
         tempCtx.drawImage(img, 1, 1, 20, 40, 0, 0, 20, 40);
 
-        // Apply color
         const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
         for (let i = 0; i < imageData.data.length; i += 4) {
           imageData.data[i] = (imageData.data[i] * color[0]) / 255;
@@ -113,7 +117,6 @@ async function drawLayer(ctx: CanvasRenderingContext2D, imageSrc: string, color:
         }
         tempCtx.putImageData(imageData, 0, 0);
 
-        // Draw the result on the main canvas
         ctx.drawImage(tempCanvas, 0, 0);
       }
 
