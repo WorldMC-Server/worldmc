@@ -2,11 +2,12 @@ import { getResident } from "@/lib/bridge";
 import { formatDateTime } from "@/lib/format";
 import { Bot, Crown, LandPlot, Lock, Shield, Star, Users } from "lucide-react";
 import Link from "next/link";
-import MinecraftItem from "@/components/minecraft/MinecraftItem";
+import MinecraftIcon from "@/components/minecraft/MinecraftIcon";
 import clsx from "clsx";
 import ResidentButton from "@/components/towny/ResidentButton";
 import NationButton from "@/components/towny/NationButton";
 import TownButton from "@/components/towny/TownButton";
+import { MinecraftItemType } from "@/lib/minecraft/MinecraftEnums";
 
 export const revalidate = 60;
 
@@ -89,8 +90,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
               </div>
             )}
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" />{" "}
-              {resident.bankAccount.toLocaleString()}
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" /> {resident.bankAccount.toLocaleString()}
             </div>
           </div>
 

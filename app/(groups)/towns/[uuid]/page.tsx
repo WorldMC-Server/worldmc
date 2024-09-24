@@ -2,12 +2,13 @@ import { getTown } from "@/lib/bridge";
 import { formatDateTime } from "@/lib/format";
 import clsx from "clsx";
 import Link from "next/link";
-import MinecraftItem from "@/components/minecraft/MinecraftItem";
 import { Medal, Users } from "lucide-react";
 import DiscordLogo from "@/components/DiscordLogo";
 import MinecraftBanner from "@/components/minecraft/MinecraftBanner";
 import ResidentButton from "@/components/towny/ResidentButton";
 import NationButton from "@/components/towny/NationButton";
+import { MinecraftItemType } from "@/lib/minecraft/MinecraftEnums";
+import MinecraftIcon from "@/components/minecraft/MinecraftIcon";
 
 export const revalidate = 60;
 
@@ -60,7 +61,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
               </div>
             )}
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" /> {town.bankAccount.toLocaleString()}
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" /> {town.bankAccount.toLocaleString()}
             </div>
           </div>
 

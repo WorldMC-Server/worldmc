@@ -1,12 +1,13 @@
 import { getNation } from "@/lib/bridge";
 import { Building2, Medal, Users } from "lucide-react";
-import MinecraftItem from "@/components/minecraft/MinecraftItem";
 import Link from "next/link";
 import { formatDateTime } from "@/lib/format";
 import DiscordLogo from "@/components/DiscordLogo";
 import MinecraftBanner from "@/components/minecraft/MinecraftBanner";
 import TownButton from "@/components/towny/TownButton";
 import NationButton from "@/components/towny/NationButton";
+import { MinecraftItemType } from "@/lib/minecraft/MinecraftEnums";
+import MinecraftIcon from "@/components/minecraft/MinecraftIcon";
 
 export const revalidate = 60;
 
@@ -65,7 +66,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
               </div>
             )}
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" /> {nation.bankAccount.toLocaleString()}
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" /> {nation.bankAccount.toLocaleString()}
             </div>
           </div>
 
@@ -89,7 +90,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold">Standard Tax</h3>
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" />
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />
               {nation.settings.taxes.toLocaleString()}
               {nation.settings.isTaxPercentage && "%"}
             </div>
@@ -100,7 +101,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold">Conquered Tax</h3>
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" />
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />
               {nation.settings.conqueredTax.toLocaleString()}
             </div>
           </div>
@@ -110,7 +111,7 @@ export default async function Page({ params }: { params: { uuid: string } }) {
           <div className="flex items-center justify-between">
             <h3 className="font-bold">Maximum Tax</h3>
             <div className="badge badge-lg">
-              <MinecraftItem imageSrc="/minecraft/combined/gold_ingot.png" className="mr-1 size-4" />
+              <MinecraftIcon assetType={MinecraftItemType.GOLD_INGOT} className="mr-1 size-4" />
               {nation.settings.maxPercentTaxAmount.toLocaleString()}
             </div>
           </div>
