@@ -2,9 +2,9 @@ import { fetchShops } from "../actions";
 import { PageControls } from "./PageControls";
 import React from "react";
 import ShopCard from "@/app/market/components/ShopCard";
-import { SearchProps } from "@/app/market/page";
+import { ShopSearchProps } from "@/lib/bridge";
 
-export default async function MarketTable(params: SearchProps) {
+export default async function MarketTable(params: ShopSearchProps) {
   const shops = await fetchShops(params);
 
   return (
