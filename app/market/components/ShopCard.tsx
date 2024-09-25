@@ -5,7 +5,7 @@ import { MinecraftItemType } from "@/lib/minecraft/MinecraftEnums";
 import { Shop } from "@/types/bridge";
 import { convertToTitleCase, replaceUnderscoresWithSpaces } from "@/lib/format";
 import clsx from "clsx";
-import { Building2, PackageOpen } from "lucide-react";
+import { Building2, Map, PackageOpen } from "lucide-react";
 import Link from "next/link";
 
 interface ShopButtonProps {
@@ -68,6 +68,10 @@ export default function ShopCard({ shop }: ShopButtonProps) {
                 {replaceUnderscoresWithSpaces(shop.town.name)}
               </div>
             )}
+          </div>
+          <div className="badge badge-info badge-lg whitespace-nowrap">
+            <Map className="mr-1 size-4" />
+            {shop.location.x}, {shop.location.z}
           </div>
         </div>
 
