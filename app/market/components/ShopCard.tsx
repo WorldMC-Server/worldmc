@@ -16,7 +16,7 @@ export default function ShopCard({ shop }: ShopButtonProps) {
     if (shop.isBuying) {
       return shop.space > 0 ? "badge-success" : "badge-error";
     } else {
-      return shop.stock >= shop.amount ? "badge-success" : "badge-error";
+      return shop.stock > 0 ? "badge-success" : "badge-error";
     }
   };
 
@@ -24,7 +24,7 @@ export default function ShopCard({ shop }: ShopButtonProps) {
     if (shop.isBuying) {
       return shop.space > 0 ? "Buying" : "Not Buying";
     } else {
-      return shop.stock >= shop.amount ? "In Stock" : "Out of Stock";
+      return shop.stock > 0 ? "In Stock" : "Out of Stock";
     }
   };
 
