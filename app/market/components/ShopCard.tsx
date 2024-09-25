@@ -6,6 +6,7 @@ import { Shop } from "@/types/bridge";
 import { convertToTitleCase, replaceUnderscoresWithSpaces } from "@/lib/format";
 import clsx from "clsx";
 import { Building2, PackageOpen } from "lucide-react";
+import Link from "next/link";
 
 interface ShopButtonProps {
   shop: Shop;
@@ -68,6 +69,16 @@ export default function ShopCard({ shop }: ShopButtonProps) {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="card-actions justify-end">
+          <Link
+            href={`https://map.worldmc.net/?world=minecraft_overworld&zoom=6&x=${shop.location.x}&z=${shop.location.z}`}
+            target="_blank"
+            className="btn btn-primary"
+          >
+            View on Map
+          </Link>
         </div>
       </div>
     </div>
