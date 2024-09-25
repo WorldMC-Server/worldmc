@@ -42,6 +42,36 @@ const recipes: MinecraftRecipeProps[] = [
     ],
     result: MinecraftBlockType.POWERED_RAIL,
   },
+  {
+    title: "Suspicious Sand",
+    ingredients: [
+      MinecraftBlockType.SAND,
+      MinecraftBlockType.SAND,
+      MinecraftBlockType.SAND,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftItemType.CLAY_BALL,
+      MinecraftBlockType.SAND,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftBlockType.COARSE_DIRT,
+    ],
+    result: MinecraftBlockType.SUSPICIOUS_SAND_0,
+  },
+  {
+    title: "Suspicious Gravel",
+    ingredients: [
+      MinecraftBlockType.GRAVEL,
+      MinecraftBlockType.GRAVEL,
+      MinecraftBlockType.GRAVEL,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftItemType.CLAY_BALL,
+      MinecraftBlockType.GRAVEL,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftBlockType.COARSE_DIRT,
+      MinecraftBlockType.COARSE_DIRT,
+    ],
+    result: MinecraftBlockType.SUSPICIOUS_GRAVEL_0,
+  },
 ];
 
 export default recipes;
