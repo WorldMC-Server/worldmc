@@ -6,13 +6,13 @@ interface TownyObject {
 
 // Resident
 interface PartialResident extends TownyObject {
-  type: "resident";
-  title: string;
+  isOnline: boolean;
   town?: PartialTown;
 }
 
 interface Resident extends PartialResident {
   surname: string;
+  title: string;
   formattedName: string;
   formattedTitleName: string;
   plotsCount: number;
@@ -21,7 +21,6 @@ interface Resident extends PartialResident {
   registered: number;
   lastOnline: number;
   isNPC: boolean;
-  isOnline: boolean;
   isMayor: boolean;
   isKing: boolean;
   isAdmin: boolean;
@@ -46,7 +45,6 @@ interface Resident extends PartialResident {
 
 // Town
 interface PartialTown extends TownyObject {
-  type: "town";
   numResidents: number;
   bannerMeta?: BannerMeta;
 }
@@ -90,7 +88,7 @@ interface Town extends PartialTown {
 
 // Nation
 interface PartialNation extends TownyObject {
-  type: "nation";
+  numResidents: number;
   bannerMeta?: BannerMeta;
 }
 
@@ -99,7 +97,6 @@ interface Nation extends PartialNation {
   bankAccount: number;
   board: string;
   registered: number;
-  numResidents: number;
   numTowns: number;
   numTownblocks: number;
   nationZoneSize: number;
