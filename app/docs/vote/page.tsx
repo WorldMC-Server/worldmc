@@ -1,5 +1,10 @@
 import { ExternalLink, Info } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Vote",
+};
 
 const voteLinks = [
   { name: "Minecraft-MP", url: "https://minecraft-mp.com/server/334708/vote/" },
