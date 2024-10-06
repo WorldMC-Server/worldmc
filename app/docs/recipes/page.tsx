@@ -1,6 +1,11 @@
 import React from "react";
 import MinecraftRecipe from "./components/MinecraftRecipe";
-import recipes from "./recipes";
+import { recipes } from "./recipes";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Custom Recipes",
+};
 
 export default function Page() {
   return (

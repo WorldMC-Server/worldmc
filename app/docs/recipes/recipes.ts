@@ -1,7 +1,7 @@
 import { MinecraftRecipeProps } from "./components/MinecraftRecipe";
 import { MinecraftBlockType, MinecraftItemType } from "@/lib/minecraft/MinecraftEnums";
 
-const recipes: MinecraftRecipeProps[] = [
+export const recipes: MinecraftRecipeProps[] = [
   {
     title: "Prismarine Shard",
     ingredients: [null, null, null, MinecraftBlockType.SAND, MinecraftBlockType.DIRT, MinecraftItemType.LAPIS_LAZULI, null, null, null],
@@ -73,5 +73,3 @@ const recipes: MinecraftRecipeProps[] = [
     result: MinecraftBlockType.SUSPICIOUS_GRAVEL_0,
   },
 ];
-
-export default recipes;

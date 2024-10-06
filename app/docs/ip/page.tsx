@@ -1,6 +1,11 @@
 import { Info } from "lucide-react";
 import CopyIpText from "@/app/docs/components/CopyIpText";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Joining WorldMC",
+};
 
 export default function Page() {
   return (
