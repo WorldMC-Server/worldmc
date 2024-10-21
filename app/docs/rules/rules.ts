@@ -8,6 +8,10 @@ export const ruleCategories = [
       },
       { rule: "Exploiting bugs or glitches is not allowed." },
       { rule: "Intentionally causing lag or disrupting server services is banned." },
+      {
+        rule: "Using alt accounts to bypass punishments is not allowed.",
+        description: "Creating or using alternate accounts to avoid mutes, bans, or other punishments is strictly prohibited.",
+      },
     ],
   },
   {
