@@ -32,6 +32,7 @@ function convertToURLSearchParams(props: BaseSearchProps | ShopSearchProps): URL
 
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = `${API_BASE_URL}${endpoint}`;
+  console.log(url)
   const headers = new Headers(options.headers);
   headers.set("apiKey", process.env.BRIDGE_KEY!);
 
