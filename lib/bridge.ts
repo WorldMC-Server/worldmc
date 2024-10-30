@@ -1,7 +1,7 @@
 import { getEnvironment } from "./environment";
 import type { PartialResident, PartialTown, Resident, Town, PartialNation, Nation, PaginatedResult, Shop } from "@/types/bridge";
 
-const API_BASE_URL = getEnvironment() === "development" ? "https://towny.worldmc.net/dev" : "https://towny.worldmc.net";
+const API_BASE_URL = getEnvironment() === "development" ? "https://towny.worldmc.net/dev" : "http://minecraft_earth:7700";
 
 export interface BaseSearchProps {
   page: number;
@@ -32,7 +32,6 @@ function convertToURLSearchParams(props: BaseSearchProps | ShopSearchProps): URL
 
 async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = `${API_BASE_URL}${endpoint}`;
-  console.log(url)
   const headers = new Headers(options.headers);
   headers.set("apiKey", process.env.BRIDGE_KEY!);
 
