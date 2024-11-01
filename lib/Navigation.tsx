@@ -1,10 +1,10 @@
-import React from "react";
+import { ReactNode } from "react";
 import { ExternalLink, Map, Search, Store, Check, Vote, Scale, Scroll } from "lucide-react";
 
 export interface NavItem {
   name: string;
   href: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   external?: boolean;
 }
 
@@ -20,8 +20,8 @@ export const mainNavItems: NavItem[] = [
 ];
 
 export const secondaryNavItems: NavItem[] = [
-  { name: "Discord", href: process.env.REACT_APP_DISCORD_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
-  { name: "Store", href: process.env.REACT_APP_STORE_LINK  || "", external: true, icon: <ExternalLink className="size-4" /> },
+  { name: "Discord", href: "https://discord.gg/JRMYBhDbBb", external: true, icon: <ExternalLink className="size-4" /> },
+  { name: "Store", href: "https://worldmc-710.tebex.io/", external: true, icon: <ExternalLink className="size-4" /> },
 ];
 
 export const docsItems: NavItem[] = [
@@ -36,7 +36,7 @@ export const footerSections: FooterSection[] = [
     title: "WorldMC",
     links: [
       { name: "Home", href: "/" },
-      { name: "Discord", href: process.env.STORE_LINK || "", external: true },
+      { name: "Discord", href: "https://discord.gg/JRMYBhDbBb", external: true },
     ],
   },
   {
