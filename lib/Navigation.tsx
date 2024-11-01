@@ -20,8 +20,8 @@ export const mainNavItems: NavItem[] = [
 ];
 
 export const secondaryNavItems: NavItem[] = [
-  { name: "Discord", href: process.env.DISCORD_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
-  { name: "Store", href: process.env.STORE_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
+  { name: "Discord", href: process.env.REACT_APP_DISCORD_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
+  { name: "Store", href: process.env.REACT_APP_STORE_LINK  || "", external: true, icon: <ExternalLink className="size-4" /> },
 ];
 
 export const docsItems: NavItem[] = [
