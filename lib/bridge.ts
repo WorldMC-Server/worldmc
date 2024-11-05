@@ -1,7 +1,7 @@
 import { getEnvironment } from "./environment";
 import type { PartialResident, PartialTown, Resident, Town, PartialNation, Nation, PaginatedResult, Shop } from "@/types/bridge";
 
-const API_BASE_URL = getEnvironment() === "development" ? "https://towny.worldmc.net/dev" : "http://minecraft_earth:7700";
+const API_BASE_URL = getEnvironment() === "development" ? "https://towny.worldmc.net/dev" : "https://towny.worldmc.net";
 
 export interface BaseSearchProps {
   page: number;
