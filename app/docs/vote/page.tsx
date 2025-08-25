@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 };
 
 const voteLinks = [
-  { name: "Minecraft-MP", url: "https://minecraft-mp.com/server/334708/vote/" },
+  { name: "Minecraft-MP", url: "https://minecraft-mp.com/server/347805/vote/" },
   { name: "Planet Minecraft", url: "https://www.planetminecraft.com/server/worldmc-6435166/vote/" },
-  { name: "Minecraft Servers", url: "https://minecraftservers.org/vote/667408" },
+  { name: "Minecraft Servers", url: "https://minecraftservers.org/vote/677636" },
   { name: "TopG", url: "https://topg.org/minecraft-servers/server-667971#vote" },
 ];
 
