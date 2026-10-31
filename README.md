@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WorldMC archive
 
-## Getting Started
+WorldMC is no longer live. This website preserves the community pages and photos. The announcement at the top of every page directs enquiries to contact@promptsolutions.com.au.
 
-First, run the development server:
+The website runs on Cloudflare Workers with Vinext 1.4.0, React 19, and Vite. The Next.js package supplies compatible types; Vinext serves the application.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Development
+
+```sh
+bun install --frozen-lockfile
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3001.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Validation and deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+bun run typecheck
+bun run lint
+bun run deploy
+```
 
-## Learn More
+Deployment requires Wrangler access to the Cloudflare account in `wrangler.jsonc`. The build generates `dist/server/wrangler.json`. Deploy with that generated configuration through the deploy script.
 
-To learn more about Next.js, take a look at the following resources:
+The `worldmc` Worker serves worldmc.net and www.worldmc.net in the zeke.pari@promptsolutions.com.au account. Its test address is https://worldmc.prompt-solutions.workers.dev. No paid cache or image services are required.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Live maps, player lookups, market data, joining instructions, and voting pages show a closure notice. They no longer depend on the retired game server. Rules and recipes remain available as archive content.

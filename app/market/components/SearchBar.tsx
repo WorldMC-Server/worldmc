@@ -13,7 +13,7 @@ const numericInputSchema = z.object({
   maxStock: z.coerce.number().min(0).optional(),
 });
 
-export default function SearchBar({ placeholder }: { placeholder: string }): JSX.Element {
+export default function SearchBar({ placeholder }: { placeholder: string }): React.JSX.Element {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();

@@ -4,7 +4,7 @@ import { Search, ChevronDown, Flag, Building2, Users } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
-export function SearchBar({ placeholder }: { placeholder: string }): JSX.Element {
+export function SearchBar({ placeholder }: { placeholder: string }): React.JSX.Element {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
