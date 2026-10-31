@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ExternalLink, Map, Search, Store, Check, Vote, Scale, Scroll } from "lucide-react";
+import { Map, Search, Store, Check, Vote, Scale, Scroll } from "lucide-react";
 
 export interface NavItem {
   name: string;
@@ -20,12 +20,11 @@ export const mainNavItems: NavItem[] = [
 ];
 
 export const secondaryNavItems: NavItem[] = [
-  { name: "Discord", href: process.env.DISCORD_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
-  { name: "Store", href: process.env.STORE_LINK || "", external: true, icon: <ExternalLink className="size-4" /> },
+  { name: "Contact", href: "mailto:contact@promptsolutions.com.au" },
 ];
 
 export const docsItems: NavItem[] = [
-  { name: "How to Join", href: "/docs/ip", icon: <Check className="size-4" /> },
+  { name: "Server status", href: "/docs/ip", icon: <Check className="size-4" /> },
   { name: "Vote", href: "/docs/vote", icon: <Vote className="size-4" /> },
   { name: "Rules", href: "/docs/rules", icon: <Scale className="size-4" /> },
   { name: "Custom Recipes", href: "/docs/recipes", icon: <Scroll className="size-4" /> },
@@ -36,7 +35,7 @@ export const footerSections: FooterSection[] = [
     title: "WorldMC",
     links: [
       { name: "Home", href: "/" },
-      { name: "Discord", href: process.env.DISCORD_LINK || "", external: true },
+      { name: "Contact", href: "mailto:contact@promptsolutions.com.au" },
     ],
   },
   {

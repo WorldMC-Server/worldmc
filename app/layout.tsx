@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
+import ClosureNotice from "@/components/ClosureNotice";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s - WorldMC",
   },
   description:
-    "Explore a 1:1000 Earth map in Minecraft. Build empires, engage in politics, and shape the global economy in this immersive, player-driven world.",
+    "WorldMC is no longer live. Explore the website archive. For enquiries, contact contact@promptsolutions.com.au.",
 };
 
 export default function RootLayout({
@@ -32,10 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <div className="min-h-screen">
+            <ClosureNotice />
             <Navbar />
             <div className="py-4">{children}</div>
           </div>
