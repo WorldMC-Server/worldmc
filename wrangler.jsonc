@@ -22,13 +22,11 @@
   "preview_urls": false,
   "routes": [
     {
-      "pattern": "worldmc.net",
-      "custom_domain": true,
+      "pattern": "worldmc.net/*",
       "zone_name": "worldmc.net"
     },
     {
-      "pattern": "www.worldmc.net",
-      "custom_domain": true,
+      "pattern": "www.worldmc.net/*",
       "zone_name": "worldmc.net"
     }
   ]
